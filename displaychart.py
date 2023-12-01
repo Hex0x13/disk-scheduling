@@ -10,14 +10,12 @@ fig, ax = None, None
 
 def isort(arr: list, start: int, stop: int, reverse=False):
     for i in range(start + 1, stop):
-        print(i)
         key = arr[i]
         j = i - 1
 
-        while j >= start and (reverse and key > arr[j]) or (not reverse and key < arr[j]):
+        while j >= start and ((reverse and key > arr[j]) or (not reverse and key < arr[j])):
             arr[j + 1] = arr[j]
             j -= 1
-            print(start, j, stop, arr, i)
         arr[j + 1] = key
 
 
@@ -54,8 +52,7 @@ def c_scan_disk(disks: list):
             disks[i], disks[j] = disks[j], disks[i]
     
     isort(disks, 0, i + 1)
-    print(disks)
-    isort(disks, i, len(disks))
+    isort(disks, i + 1, len(disks))
 
 
 def displayChart(root, outputframe, array, algorithm, outermost_track, innermost_track):
@@ -93,7 +90,6 @@ def displayChart(root, outputframe, array, algorithm, outermost_track, innermost
 
     totalOfHeadMove = 0
     for i in range(len(requests) - 1):
-        print(f"{requests[i]} - {requests[i + 1]}")
         totalOfHeadMove += abs(requests[i] - requests[i + 1])
 
     fig, ax = plt.subplots()
