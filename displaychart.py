@@ -3,7 +3,6 @@ from CTkMessagebox import *
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import numpy as np
-import random
 
 fig, ax = None, None
 

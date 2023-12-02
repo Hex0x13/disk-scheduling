@@ -3,9 +3,16 @@ import matplotlib.pyplot as plt
 from displaychart import display_chart, fig
 from components import *
 from display_array import *
+import os
 
 root = ctk.CTk()
 root.geometry("1000x800")
+root.title('Disk Scheduling')
+
+script_directory = os.path.dirname(os.path.realpath(__file__))
+iconpath = os.path.join(script_directory, 'icon.ico')
+root.iconbitmap(iconpath)
+
 load_dependency()
 algorithm_var = ctk.StringVar(value='Select Algorithm')
 

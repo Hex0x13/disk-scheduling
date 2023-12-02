@@ -2,7 +2,6 @@ import customtkinter as ctk
 from CTkMessagebox import *
 from displaychart import display_chart, optionMenuChange, destroy_chart
 from display_array import *
-import numpy as np
 
 
 sample_array = (70, 118, 59, 110, 25, 105, 63, 100, 28, 80)
