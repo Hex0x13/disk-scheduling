@@ -65,6 +65,9 @@ def display_chart(root, outputframe, array, algorithm, outermost_track, innermos
     global fig
     global ax
 
+    if innermost_track <= outermost_track:
+        CTkMessagebox(root, title="", message="Please make sure outermost track is lesser than innermost")
+
     if not isinstance(array[0], int):
         CTkMessagebox(root, title="", message="Please enter head")
         return
@@ -102,10 +105,8 @@ def display_chart(root, outputframe, array, algorithm, outermost_track, innermos
     ax.set_xlabel = "time"
     ax.set_ylabel = "Track Number"
     ax.set_title(f"The {algorithm} Disk Scheduling")
-    ax.tick_params(axis='x', which='both', bottom=False,
-                   top=False, labelbottom=False)
-    yticks = np.arange(outermost_track, innermost_track + 1,
-                       (innermost_track + 1) // len(requests))
+    ax.tick_params(axis='x', which='both', bottom=False,top=False, labelbottom=False)
+    yticks = np.arange(outermost_track, innermost_track + 1,(innermost_track + 1) // len(requests))
     ax.set_yticks(yticks)
 
     canvas = FigureCanvasTkAgg(fig, master=outputframe)
@@ -113,8 +114,7 @@ def display_chart(root, outputframe, array, algorithm, outermost_track, innermos
     canvas.get_tk_widget().configure(width=800, height=600)
     canvas.get_tk_widget().pack(pady=(40, 5))
 
-    total_label = ctk.CTkLabel(outputframe, text=f"The total number of head movement is {
-                               totalOfHeadMove} tracks", font=ctk.CTkFont(size=16))
+    total_label = ctk.CTkLabel(outputframe, text=f"The total number of head movement is {totalOfHeadMove} tracks", font=ctk.CTkFont(size=16))
     total_label.pack()
 
 

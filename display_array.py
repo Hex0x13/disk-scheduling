@@ -5,10 +5,10 @@ outermost_track_var = None
 innermost_track_var = None
 
 def validate_outermost_track(value):
-    return (value.isdigit() and int(value) < int(innermost_track_var.get())) or ''
+    return (value.isdigit() or (value == ''))
 
 def validate_innermost_track(value):
-    return (value.isdigit() and int(value) > int(outermost_track_var.get())) or ''
+    return (value.isdigit() or (value == ''))
 
 def load_dependency():
     global outermost_track_var

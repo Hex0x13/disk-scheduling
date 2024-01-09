@@ -18,6 +18,8 @@ def clear_array(arrayparent, outputframe):
 def generate_sample(arrayparent, outputframe):
     global array
 
+    outermost_track().set('0')
+    innermost_track().set('199')
     array = [*sample_array]
     display_array(arrayparent, array)
     destroy_chart(outputframe)
